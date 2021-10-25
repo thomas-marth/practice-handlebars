@@ -1,7 +1,10 @@
 const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { merge } = require("webpack-merge");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const {
+  CleanWebpackPlugin
+} = require("clean-webpack-plugin");
+const {
+  merge
+} = require("webpack-merge");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const WebpackBar = require("webpackbar");
 
@@ -10,8 +13,7 @@ const loadModeConfig = (env) =>
   require(`./build-utils/${env.mode}.config`)(env);
 // экспорт объекта настроек
 module.exports = (env) =>
-  merge(
-    {
+  merge({
       mode: env.mode,
       context: path.resolve(__dirname, "src"),
       // 1. точка входа - откуда строить дерево зависимостей
@@ -23,45 +25,24 @@ module.exports = (env) =>
       },
       // 3. загрузчики (loaders)
       module: {
-        rules: [
-          {
+        rules: [{
             test: /\.js$/, // регулярное выражение
             exclude: /node_modules/, // через указ папку свойства не прогонять
             use: ["babel-loader"],
           },
           {
             test: /\.(gif|png|jpe?g|svg)$/,
-            use: [
-              {
-                loader: "url-loader",
-                options: {
-                  name: "[path]/[name].[ext]",
-                  limit: 5000,
-                },
+            use: [{
+              loader: "url-loader",
+              options: {
+                name: "[path]/[name].[ext]",
+                limit: 5000,
               },
-            ],
+            }, ],
           },
           {
             test: /\.html$/,
             use: ["html-loader"],
-          },
-          {
-            test: /\.css$/,
-            use: [
-              "style-loader",
-              MiniCssExtractPlugin.loader,
-              "css-loader",
-              "postcss-loader",
-            ],
-          },
-          {
-            test: /\.scss$/,
-            use: [
-              "style-loader",
-              MiniCssExtractPlugin.loader,
-              "css-loader",
-              "postcss-loader",
-            ],
           },
           {
             test: /\.hbs$/,
@@ -74,8 +55,7 @@ module.exports = (env) =>
         new CleanWebpackPlugin(),
         new FriendlyErrorsWebpackPlugin(),
         new WebpackBar(),
-        new MiniCssExtractPlugin(),
       ],
     },
-    loadModeConfig(env),
+    loadModeConfig(env)
   );

@@ -5,24 +5,14 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = (env) => ({
   devtool: "source-map",
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader, // вытянет из js
-          "css-loader", // добавит все в js
-          "postcss-loader", // добавляет автопрефиксы
-        ],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader, // вытянет из js
-          "css-loader", // добавит все в js
-          "postcss-loader", // добавляет автопрефиксы
-        ],
-      },
-    ],
+    rules: [{
+      test: /\.css$/,
+      use: [
+        MiniCssExtractPlugin.loader, // вытянет из js
+        "css-loader", // добавит все в js
+        "postcss-loader", // добавляет автопрефиксы
+      ],
+    }, ],
   },
   plugins: [
     new HtmlWebpackPlugin({

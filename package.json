@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+// тут вставить url репозитория на гите"
+    "url": "git+https://github.com/thomas-marth/practice-handlebars"
   },
-  "author": "",
+  "author": "Thomas-marth",
   "license": "ISC",
   "bugs": {
-    "url": "// тут вставить url репозитория на гите"
+    "url": "https://github.com/thomas-marth/practice-handlebars"
   },
   "homepage": "// тут вставить url GitHub Pages после команды npm run deploy",
   "devDependencies": {

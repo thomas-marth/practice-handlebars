@@ -1,11 +1,15 @@
-<article class=card{{name}}>
+<div class="card">
+    <h2>{{name}}</h2>
+<ul>
+{{#each abilities}}
+<li>{{this.ability.name}}</li>
+{{/each}}
+</ul>
 <img src={{sprites.front_default}}>
-<img src={{sprites.back_default}}>    
-<h2>{{name}}</h2>
+<p>Moves:</p>
 <ul>
     {{#each moves}}
     <li>{{this.move.name}}</li>
     {{/each}}
 </ul>
-<p>{{weight}} kg</p>
-</article>
+</div>

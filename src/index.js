@@ -6,10 +6,10 @@ import pokemonTemplate from "./templates/pokemonTemplate.hbs";
 // console.log(ditto);
 // console.log(pokemonTemplate(ditto));
 
-function markupMaker(...params) {
+function createMarkup(...params) {
   params.map((param) => {
     document.body.insertAdjacentHTML("beforeend", pokemonTemplate(param));
   });
 }
 
-markupMaker(ditto, bulbasaur);
+createMarkup(ditto, bulbasaur);

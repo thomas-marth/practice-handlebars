@@ -8,7 +8,6 @@ import pokemonTemplate from "./templates/pokemonTemplate.hbs";
 
 function markupMaker(...params) {
   params.map((param) => {
-    pokemonTemplate(param);
     document.body.insertAdjacentHTML("beforeend", pokemonTemplate(param));
   });
 }
